@@ -35,9 +35,11 @@ body {
 
 #calcuBox {
   width: 450px;
-  border: 1px solid white;
+  border: 5px solid white;
+  background-color: white;
   display: flex;
   flex-direction: column;
+  border-radius: 10px;
 }
 
 #displayBox {
@@ -45,11 +47,12 @@ body {
   background-color: #f3ede5;
   width: 100%;
   height: 3em;
-  font-size: 25px;
+  font-size: 1.5rem;
   padding: 1em;
   display: flex;
   justify-content: right;
   align-items: flex-end;
+  border-radius: 10px;
 }
 
 #operatorsBox {
@@ -59,13 +62,21 @@ body {
   height: 4em;
 }
 
-#operatorsBox div {
+#operatorsBox button {
   border: 1px solid black;
   background-color: #bad3ee;
   width: 25%;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+#operatorsBox button:hover {
+  background-color: #9fbddd;
+}
+
+#operatorsBox button:active {
+  background-color: #9fb3dd;
 }
 
 #numbersBox {
@@ -76,7 +87,7 @@ body {
   flex-wrap: wrap;
 }
 
-#numbersBox div {
+#numbersBox button {
   border: 1px solid white;
   background-color: #d5e6f8;
   width: 33.3333%;
@@ -84,6 +95,40 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/*inelegant code follows*/
+
+#numbersBox button:hover {
+  background-color: #c3d9f0;
+}
+
+#numbersBox button:active {
+  background-color: #c3cdf0;
+}
+
+#numbersBox #clearB {
+  background-color: #bad3ee;
+} 
+
+#numbersBox #clearB:hover {
+  background-color: #9fbddd;
+}
+
+#numbersBox #clearB:active {
+  background-color: #9fb3dd;
+}
+
+#numbersBox #enterB {
+  background-color: #bad3ee;
+}
+
+#numbersBox #enterB:hover {
+  background-color: #9fbddd;
+}
+
+#numbersBox #enterB:active {
+  background-color: #9fb3dd;
 }
 
 

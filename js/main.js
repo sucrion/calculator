@@ -29,9 +29,20 @@ function operate(a, b, c) {
             multi(b, c);
             break;
         case 'd':
-            divi(b, c);
+            if (c===0) {
+                displayShow('nope! try again');
+            } else {
+                divi(b, c);
+            }
             break;
         default:
-            console.log('something went wrong!')
+            console.log('something went wrong!');
     }
 }
+
+//display
+function displayShow(value) {
+    document.querySelector('#displayBox').innerText(`${value}`);
+}
+
+//buttons + keeping track of nrs
