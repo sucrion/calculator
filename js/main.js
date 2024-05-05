@@ -3,25 +3,25 @@
 function add(a, b) {
     a = Number(a);
     b = Number(b);
-    return (a + b).toFixed(5);
+    return (a + b);
 }
 //subtraction
 function subtr(a, b) {
     a = Number(a);
     b = Number(b);
-    return (a - b).toFixed(5);
+    return (a - b);
 }
 //multiplication
 function multi(a, b) {
     a = Number(a);
     b = Number(b);
-    return (a * b).toFixed(5);
+    return (a * b);
 }
 //division
 function divi(a, b) {
     a = Number(a);
     b = Number(b);
-    return (a / b).toFixed(5);
+    return (a / b);
 }
 
 ////general calculator function
@@ -55,7 +55,11 @@ function operate(a, b, c) {
 
 //display
 function displayShow(value) {
-    document.querySelector('#displayBox').innerText = `${value}`;
+    if (Number.isInteger(value)) {
+        document.querySelector('#displayBox').innerText = `${value}`;
+    } else {
+        document.querySelector('#displayBox').innerText = `${value.toFixed(2)}`;
+    }
     console.log(value);
 }
 
