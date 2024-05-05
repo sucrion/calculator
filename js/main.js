@@ -188,3 +188,4 @@ displayShow(displayValue);
 //3. make it less ugly
 //4. backspace?
 //5. keyboard support?
+// make code nicer !!!
