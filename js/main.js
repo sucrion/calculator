@@ -26,6 +26,8 @@ function divi(a, b) {
 
 ////general calculator function
 function operate(a, b, c) {
+    c = Number(c);
+    b = Number(b);
     switch (a) {
         case 'a':
             let resa = add(b, c);
@@ -42,7 +44,7 @@ function operate(a, b, c) {
         case 'd':
             if (c===0) {
                 displayShow('nope! try again');
-                console.log('don\'t divide by 0')
+                console.log('don\'t divide by 0');
             } else {
                 let resd = divi(b, c);
                 return resd;
@@ -55,11 +57,14 @@ function operate(a, b, c) {
 
 //display
 function displayShow(value) {
+    document.querySelector('#displayBox').innerText = `${value}`;
+    /* something's not working with limiting this...
     if (Number.isInteger(value)) {
         document.querySelector('#displayBox').innerText = `${value}`;
     } else {
-        document.querySelector('#displayBox').innerText = `${value.toFixed(2)}`;
+        document.querySelector('#displayBox').innerText = `${value.toFixed(3)}`;
     }
+    */
     console.log(value);
 }
 
@@ -69,6 +74,7 @@ function clearAll() {
     inputFirst = undefined
     inputSecond = undefined
     operatorUsed = undefined
+    enterPressed = false
 }
 
 ///keeping track of nrs + buttons
@@ -76,6 +82,7 @@ function clearAll() {
 let inputFirst
 let inputSecond
 let operatorUsed
+let enterPressed = false
 
 function firstInputNumber(num) {
     inputFirst += num
@@ -83,12 +90,18 @@ function firstInputNumber(num) {
 function secondInputNumber(num) {
     inputSecond += num
 }
+/*
 function operatorInput(oper) {
     operatorUsed = oper
 }
+*/
 
 function buttonPress(num) {
     if (inputFirst===undefined) {
+        inputFirst = `${num}`;
+        displayValue = inputFirst;
+    } else if (inputFirst!==undefined && operatorUsed===undefined && enterPressed==true) {
+        clearAll();
         inputFirst = `${num}`;
         displayValue = inputFirst;
     } else if (inputFirst!==undefined && operatorUsed===undefined) {
@@ -118,6 +131,7 @@ document.getElementById('enterB').addEventListener('click', () => {
         inputFirst = displayValue;
         operatorUsed = undefined;
         inputSecond = undefined;
+        enterPressed = true;
         displayShow(displayValue);
     } else {
         console.log('something went wrong with the enter button!');
@@ -187,9 +201,8 @@ let displayValue = 0; //not ideal but let's let it be for now
 displayShow(displayValue);
 
 ////WHAT's LEFT?
-//1. Pressing number button after getting the result with = doesn't automatically clear prev. Idea: T/F if = has just been executed?
-//2. decimals button (note: remember only one . allowed...)
-//3. make it less ugly
-//4. backspace?
-//5. keyboard support?
+//1. decimal button (note: remember only one . allowed)
+//2. make it less ugly
+//3. backspace?
+//4. keyboard support?
 // make code nicer !!!
